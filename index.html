@@ -6,171 +6,88 @@
   <title>SissyLashes | Dein Lash‑Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --brand-pink:   #f7e6ee;
-      --brand-accent: #ff5fa2;
-      --brand-dark:   #2d2d2d;
+    :root{
+      --brand-pink:#fbe8f0;
+      --brand-accent:#ff5fa2;
+      --brand-dark:#2d2d2d;
+      --btn-shadow:0 4px 12px rgba(255,95,162,.35);
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--brand-dark);
-      background: #ffffff;
-      line-height: 1.6;
-    }
-header{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#ffffff;
-  padding:14px 0;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-  position:sticky;
-  top:0;
-  z-index:100;
-}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;color:var(--brand-dark);background:#ffffff;line-height:1.6;}
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:.5rem;                 /* Abstand zwischen Logo & Text */
-  font-family:'Playfair Display',serif;
-  font-size:2rem;            /* bestimmt die Logo‑Höhe via 1em */
-  font-weight:700;
-  letter-spacing:1px;
-}
+    /* HEADER */
+    header{display:flex;justify-content:center;align-items:center;gap:.6rem;background:#fff;padding:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);position:sticky;top:0;z-index:100;}
+    .brand{display:flex;align-items:center;gap:.5rem;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;letter-spacing:1px;}
+    .logo{height:1em;width:auto;}
 
-.logo{
-  height:1em;                /* Logo exakt so hoch wie Schrift */
-  width:auto;
-}
-    }
-    .brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: 1px;
-    }
+    /* BUTTONS */
+    .btn{display:inline-block;padding:.8rem 2.6rem;border-radius:999px;background:var(--brand-accent);color:#fff;font-weight:600;text-decoration:none;box-shadow:var(--btn-shadow);transition:transform .25s ease,box-shadow .25s ease;}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(255,95,162,.45);}    
+    .btn-group{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem;}
 
+    /* HERO */
+    .hero{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;padding:4rem 1rem;background:linear-gradient(135deg,var(--brand-pink)0%,#fff 100%);overflow:hidden;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1rem;}
+    .hero p{font-size:1.25rem;max-width:700px;margin:0 auto 0;}
+    .hero-gif{position:absolute;top:55%;left:50%;transform:translate(-50%,-50%);width:180px;max-width:50%;opacity:.9;mix-blend-mode:multiply;pointer-events:none;}
 
+    /* GALLERY */
+    .gallery{max-width:1200px;margin:0 auto;padding:4rem 1rem;}
+    .gallery h2{font-family:'Playfair Display',serif;font-size:2.25rem;text-align:center;margin-bottom:2.5rem;}
+    .gallery h3{font-size:1.5rem;font-weight:600;margin:2rem 0 1rem;color:var(--brand-dark);}  
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+    .gallery-grid img{width:100%;height:100%;object-fit:cover;border-radius:1rem;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:transform .2s ease;}
+    .gallery-grid img:hover{transform:scale(1.04);}  
 
-
-    /* ------------- GALLERY ------------- */
-    .gallery {
-      padding: 3rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .gallery h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      font-family: 'Playfair Display', serif;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 1rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,.08);
-      transition: transform .2s ease;
-    }
-    .gallery-grid img:hover { transform: scale(1.03); }
-
-    footer {
-      background: #fafafa;
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.875rem;
-      color: #777777;
-    }
+    footer{background:#fafafa;padding:2rem 1rem;text-align:center;font-size:.875rem;color:#777;}
   </style>
 </head>
 <body>
-<!-- =========================
-     HEADER‑BEREICH
-========================= -->
-<header>
-  <div class="brand">
-    <span>SissyLashes</span>
-    <img src="Logo.png" alt="Logo" class="logo">    
-  </div>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="brand"><img src="Logo.png" alt="Logo" class="logo"><span>SissyLashes</span></div>
+  </header>
 
-
-<!-- ===== HERO‑Bereich (im <body>)  ===== -->
-<section class="hero">
-  
-  <h1>Wimpern – dein perfekter Augenaufschlag</h1>
-  <p>Liebe zum Detail & höchste Präzision – entdecke meine Arbeiten und lass dich verzaubern.</p>
-
-  <div class="btn-group">
-    <a href="https://wa.me/491625708801?text=Hallo%20SissyLashes,%20ich%20hätte%20gerne%20einen%20Termin%20zur%20Wimpernverlängerung."
-       class="btn" target="_blank" rel="noopener">Termin vereinbaren über WhatsApp</a>
-    <a href="preisliste.html" class="btn" rel="noopener">Preisliste</a>
-    <a href="dasbinich.html" class="btn" rel="noopener">Das bin ich</a>
-  </div>
-</section>
-
-
+  <!-- HERO -->
+  <section class="hero">
+    <img src="gifbutterflie.webp" alt="Butterfly animation" class="hero-gif">
     <h1>Wimpern – dein perfekter Augenaufschlag</h1>
-    <p>Liebe zum Detail & höchste Präzision – entdecke meine Arbeiten und lass dich verzaubern.</p>
+    <p>Liebe zum Detail & höchste Präzision – entdecke meine Arbeiten und lass dich verzaubern.</p>
 
     <div class="btn-group">
-      <a href="https://wa.me/491625708801?text=Hallo%20SissyLashes,%20ich%20hätte%20gerne%20einen%20Termin%20zur%20Wimpernverlängerung." class="btn" target="_blank" rel="noopener">Termin vereinbaren über WhatsApp</a>
+      <a href="https://wa.me/491625708801?text=Hallo%20SissyLashes,%20ich%20hätte%20gerne%20einen%20Termin%20zur%20Wimpernverlängerung." class="btn" target="_blank" rel="noopener">WhatsApp Termin</a>
       <a href="preisliste.html" class="btn" rel="noopener">Preisliste</a>
-      <a href="dasbinich.html" class="btn" rel="noopener">Das bin ich</a>
+      <a href="dasbinich.html" class="btn" rel="noopener">Das bin ich</a>
     </div>
   </section>
 
-
-
-
-  
-
+  <!-- GALLERY -->
   <section class="gallery">
-  <h2>Portfolio</h2>
+    <h2>Portfolio</h2>
 
-  <!-- 1:1 Technik -->
-  <h3>1:1 Technik</h3>
-  <div class="gallery-grid">
-    <img src="thumbnail_3590A255-4F75-4964-8B49-A2833B20E637.jpg" alt="Lash Styling 1" />
-    <img src="thumbnail_35EB289F-B752-447E-B312-6BFC28392D2E.jpg" alt="Lash Styling 2" />
-     <img src="thumbnail_6A87B319-4574-4AE1-8B9B-CC2568012C86.jpg" alt="Lash Styling 3" />
-    <img src="thumbnail_7C2FD7E4-3932-4BDB-B45B-28623E111626.jpg" alt="Lash Styling 10" />
-    <img src="thumbnail_BB066ED2-EA31-4513-8075-CDEAF525EB56.jpg" alt="Lash Styling 11" />
-    <img src="thumbnail_BDAA3ADC-EB2E-438D-9EE9-329417E531E4.jpg" alt="Lash Styling 12" />
-  </div>
+    <h3>1:1 Technik</h3>
+    <div class="gallery-grid">
+      <img src="thumbnail_3590A255-4F75-4964-8B49-A2833B20E637.jpg" alt="1:1 Technik 1" />
+      <img src="thumbnail_35EB289F-B752-447E-B312-6BFC28392D2E.jpg" alt="1:1 Technik 2" />
+      <img src="thumbnail_6A87B319-4574-4AE1-8B9B-CC2568012C86.jpg" alt="1:1 Technik 3" />
+    </div>
 
-  <!-- Volumen Technik -->
-  <h3>Volumen Technik</h3>
-  <div class="gallery-grid">
-    <img src="thumbnail_8A7C2DF7-0948-47F3-B8D3-D0FBF5AAE500.jpg" alt="Lash Styling 4" />
-    <img src="thumbnail_DD265F9E-2BB4-4A60-99E5-F4B85EE55DC8.jpg" alt="Lash Styling 5" />
-     <img src="thumbnail_DFD4C5D1-E308-417B-AD8E-F3CD6474DDE8.jpg" alt="Lash Styling 6" />
-  </div>
+    <h3>Volumen Technik</h3>
+    <div class="gallery-grid">
+      <img src="thumbnail_8A7C2DF7-0948-47F3-B8D3-D0FBF5AAE500.jpg" alt="Volumen 1" />
+      <img src="thumbnail_DD265F9E-2BB4-4A60-99E5-F4B85EE55DC8.jpg" alt="Volumen 2" />
+      <img src="thumbnail_DFD4C5D1-E308-417B-AD8E-F3CD6474DDE8.jpg" alt="Volumen 3" />
+    </div>
 
-  <!-- Wimpern Lifting -->
-  <h3>Wimpern Lifting</h3>
-  <div class="gallery-grid">
-     <img src="thumbnail_07652AB0-4F02-41CB-9918-64ADD6765B32.jpg" alt="Lash Styling 7" />
-    <img src="thumbnail_5C25E1B5-5860-4C3E-88B2-804BA50A5E36.jpg" alt="Lash Styling 8" />
-    <img src="thumbnail_6A87B319-4574-4AE1-8B9B-CC2568012C86.jpg" alt="Lash Styling 9" />
-  </div>
-</section>
+    <h3>Wimpern Lifting</h3>
+    <div class="gallery-grid">
+      <img src="thumbnail_07652AB0-4F02-41CB-9918-64ADD6765B32.jpg" alt="Lifting 1" />
+      <img src="thumbnail_5C25E1B5-5860-4C3E-88B2-804BA50A5E36.jpg" alt="Lifting 2" />
+      <img src="thumbnail_7C2FD7E4-3932-4BDB-B45B-28623E111626.jpg" alt="Lifting 3" />
+    </div>
+  </section>
 
-
-  
-
-  <footer>
-    &copy; 2025 SissyLashes · Entwickelt mit ❤️ von SissyLashes
-  </footer>
+  <!-- FOOTER -->
+  <footer>&copy; 2025 SissyLashes · Entwickelt mit ❤️ von SissyLashes</footer>
 </body>
 </html>
