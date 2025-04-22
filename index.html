@@ -7,9 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --brand-pink: #f7e6ee;
+      --brand-pink:   #f7e6ee;
       --brand-accent: #ff5fa2;
-      --brand-dark:  #2d2d2d;
+      --brand-dark:   #2d2d2d;
     }
     * { box-sizing: border-box; }
     body {
@@ -34,7 +34,10 @@
       text-align: center;
       letter-spacing: 1px;
     }
+
+    /* ---------------- HERO ---------------- */
     .hero {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -42,17 +45,22 @@
       min-height: 60vh;
       text-align: center;
       padding: 4rem 1rem;
+      overflow: hidden;
       background: linear-gradient(135deg, var(--brand-pink) 0%, #ffffff 100%);
     }
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
       margin: 0 0 1rem;
       font-family: 'Playfair Display', serif;
+      position: relative;
+      z-index: 2;
     }
     .hero p {
       font-size: 1.25rem;
       max-width: 700px;
       margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
     }
     .btn {
       display: inline-block;
@@ -64,8 +72,38 @@
       font-weight: 600;
       box-shadow: 0 4px 12px rgba(255,95,162,.3);
       transition: transform .2s ease;
+      position: relative;
+      z-index: 2;
     }
     .btn:hover { transform: translateY(-2px); }
+
+    /* Animated lashes */
+    .lash-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.15; /* subtle */
+    }
+    .lash-line {
+      stroke: var(--brand-accent);
+      stroke-width: 2;
+      stroke-linecap: round;
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: lashGrow 6s ease-in-out infinite alternate;
+    }
+    /* Create slight delay based on CSS variable set inline */
+    .lash-line { animation-delay: var(--d); }
+
+    @keyframes lashGrow {
+      from { transform: scaleY(0); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* ------------- GALLERY ------------- */
     .gallery {
       padding: 3rem 1rem;
       max-width: 1200px;
@@ -91,6 +129,7 @@
       transition: transform .2s ease;
     }
     .gallery-grid img:hover { transform: scale(1.03); }
+
     footer {
       background: #fafafa;
       padding: 2rem 1rem;
@@ -106,6 +145,31 @@
   </header>
 
   <section class="hero">
+
+    <!-- Animated background svg -->
+    <svg class="lash-bg" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice">
+      <g id="lashes">
+        <!-- series of lash lines -->
+        <line x1="100" y1="120" x2="60"  y2="40"  class="lash-line" style="--d:0s"  />
+        <line x1="100" y1="120" x2="65"  y2="42"  class="lash-line" style="--d:0.2s"/>
+        <line x1="100" y1="120" x2="70"  y2="45"  class="lash-line" style="--d:0.4s"/>
+        <line x1="100" y1="120" x2="75"  y2="48"  class="lash-line" style="--d:0.6s"/>
+        <line x1="100" y1="120" x2="80"  y2="50"  class="lash-line" style="--d:0.8s"/>
+        <line x1="100" y1="120" x2="85"  y2="53"  class="lash-line" style="--d:1s"  />
+        <line x1="100" y1="120" x2="90"  y2="55"  class="lash-line" style="--d:1.2s"/>
+        <line x1="100" y1="120" x2="95"  y2="57"  class="lash-line" style="--d:1.4s"/>
+        <line x1="100" y1="120" x2="100" y2="58"  class="lash-line" style="--d:1.6s"/>
+        <line x1="100" y1="120" x2="105" y2="57"  class="lash-line" style="--d:1.8s"/>
+        <line x1="100" y1="120" x2="110" y2="55"  class="lash-line" style="--d:2s"  />
+        <line x1="100" y1="120" x2="115" y2="53"  class="lash-line" style="--d:2.2s"/>
+        <line x1="100" y1="120" x2="120" y2="50"  class="lash-line" style="--d:2.4s"/>
+        <line x1="100" y1="120" x2="125" y2="48"  class="lash-line" style="--d:2.6s"/>
+        <line x1="100" y1="120" x2="130" y2="45"  class="lash-line" style="--d:2.8s"/>
+        <line x1="100" y1="120" x2="135" y2="42"  class="lash-line" style="--d:3s"  />
+        <line x1="100" y1="120" x2="140" y2="40"  class="lash-line" style="--d:3.2s"/>
+      </g>
+    </svg>
+
     <h1>Wimpern – dein perfekter Augenaufschlag</h1>
     <p>Liebe zum Detail & höchste Präzision – entdecke meine Arbeiten und lass dich verzaubern.</p>
     <a href="mailto:info@sissylashes.de" class="btn">Termin anfragen</a>
