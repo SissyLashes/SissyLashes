@@ -19,13 +19,32 @@
       background: #ffffff;
       line-height: 1.6;
     }
-    header {
-      background: #ffffff;
-      padding: 20px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+header{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ffffff;
+  padding:14px 0;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.5rem;                 /* Abstand zwischen Logo & Text */
+  font-family:'Playfair Display',serif;
+  font-size:2rem;            /* bestimmt die Logo‑Höhe via 1em */
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.logo{
+  height:1em;                /* Logo exakt so hoch wie Schrift */
+  width:auto;
+}
     }
     .brand {
       font-family: 'Playfair Display', serif;
@@ -140,9 +159,16 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="brand">SissyLashes</div>
-  </header>
+<!-- =========================
+     HEADER‑BEREICH
+========================= -->
+<header>
+  <div class="brand">
+    <span>SissyLashes</span>
+    <img src="Logo.png" alt="Logo" class="logo">    
+  </div>
+</header>
+
 
   <section class="hero">
     <!-- Animated background svg -->
